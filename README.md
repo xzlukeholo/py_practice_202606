@@ -1,8 +1,9 @@
-"# py_practice_202606" 
+"# py_practice_202606"
 
 ## 這個月練習的小題目會集中在這裡,今天的題目是第一部份的:
 
 '''
+
 # A. 函式與 return 基礎
 
 1. 取得股票代號
@@ -11,17 +12,17 @@
 
 要求：回傳股票的 `"ticker"`。
 
-
 print(get_ticker(stocks[0]))
 預期輸出：
 NVDA
+
 ---
+
 2. 判斷股票是否上漲
 
 請寫一個函式：
 def is_positive(stock):
-    ...
-
+...
 
 要求：如果 `return_pct` 大於 0，回傳 `True`，否則回傳 `False`。
 
@@ -37,14 +38,12 @@ False
 
 請寫一個函式：
 def find_first_positive(stocks):
-    ...
-
+...
 
 要求：
 從清單中找出第一檔 `return_pct > 0` 的股票。
 找到後回傳那一整個 dictionary。
 如果全部都沒有上漲，回傳 `None`。
-
 
 print(find_first_positive(stocks))
 預期結果：
@@ -68,9 +67,11 @@ MU
 PLTR
 
 ---
+
 '''
 
 ## 第二天的練習題目:
+
 '''
 B. 參數、預設參數、命名規則
 
@@ -79,6 +80,7 @@ B. 參數、預設參數、命名規則
 情境：
 投資人想設定一個「最低漲跌幅門檻」，只看表現達到門檻以上的股票。
 要求：請寫一個函式
+
 - 函式要根據 `min_return` 篩選股票。
 - 回傳符合條件的股票資料。
 - 回傳型態必須是 list。
@@ -92,6 +94,7 @@ B. 參數、預設參數、命名規則
 情境：
 投資人想知道整份股票觀察清單的平均漲跌幅。
 要求：請寫一個函式
+
 - 根據所有股票的 `return_pct` 計算平均值。
 - 回傳平均漲跌幅。
 - 請注意空清單的情況。
@@ -105,6 +108,7 @@ B. 參數、預設參數、命名規則
 系統需要把單一股票資料轉成容易閱讀的摘要文字，之後可能拿去印出、寫進報告、存成檔案。
 
 要求：請寫一個函式
+
 - 函式負責「產生摘要字串」。
 - 不要在函式裡面直接 `print()`。
 - 請用 `return` 把摘要字串交出去。
@@ -119,7 +123,7 @@ NVDA | Price: 1200 | Return: 3.2% | Volume: 35
 
 ---
 
-## 印出股票摘要：練 print
+## 印出全部需要的股票摘要：練 print
 
 def print_stock_summary(stock):
 
@@ -130,16 +134,49 @@ def print_stock_summary(stock):
 - 可以重複利用第 7 題的 `build_stock_summary(stock)`。
 - 這個函式的主要任務是顯示資料。
 - 不需要特別回傳資料。
+  '''
 
-測試：
+---
 
-result = print_stock_summary(stocks[0])
-print(result)
+## Simple Exercise I:
 
-思考：
+# ---
+# 第一題.Write a function called "printMany" that prints out integers 1, 2, 3, ..., 100.
+# 答:
+def printMany():
+    for number in range(1, 101):
+        print(number)
 
-1. 第一行會印出什麼？
-2. 第二行會印出什麼？
-3. 為什麼這個函式沒有寫 `return` 時，`result` 會是 `None`？
+# ---
+# 第二題.Write a function called "printEvery3" that prints out integers 1, 4, 7, 10, ..., 88.
+# 答:
 
-'''
+
+def printEvery3():
+    for number in range(1, 89, 3):
+        print(number)
+
+
+# ---
+# 第三題.Write a function called "position" that returns a tuple of the first uppercase letter
+# and its index location. If not found, returns - 1.
+# 答:
+def position(text):
+    for index, char in enumerate(text):
+        if char.isupper():
+            return (char, index)
+    return -1
+
+# ---
+# 第四題.Write a function called "findSmallCount"
+# that takes one list of integers and one integer as input,
+# and returns an integer indicating how many elements in the list is smaller than the input integer.
+# 答:
+
+
+def findSmallCount(int_list, target):
+    count = 0
+    for integer in int_list:
+        if integer < target:
+            count += 1
+    return count
