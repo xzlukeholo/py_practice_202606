@@ -141,42 +141,149 @@ def print_stock_summary(stock):
 ## Simple Exercise I:
 
 # ---
+
 # 第一題.Write a function called "printMany" that prints out integers 1, 2, 3, ..., 100.
+
 # 答:
+
 def printMany():
-    for number in range(1, 101):
-        print(number)
+for number in range(1, 101):
+print(number)
 
 # ---
-# 第二題.Write a function called "printEvery3" that prints out integers 1, 4, 7, 10, ..., 88.
-# 答:
 
+# 第二題.Write a function called "printEvery3" that prints out integers 1, 4, 7, 10, ..., 88.
+
+# 答:
 
 def printEvery3():
-    for number in range(1, 89, 3):
-        print(number)
-
+for number in range(1, 89, 3):
+print(number)
 
 # ---
+
 # 第三題.Write a function called "position" that returns a tuple of the first uppercase letter
+
 # and its index location. If not found, returns - 1.
+
 # 答:
+
 def position(text):
-    for index, char in enumerate(text):
-        if char.isupper():
-            return (char, index)
-    return -1
+for index, char in enumerate(text):
+if char.isupper():
+return (char, index)
+return -1
 
 # ---
-# 第四題.Write a function called "findSmallCount"
-# that takes one list of integers and one integer as input,
-# and returns an integer indicating how many elements in the list is smaller than the input integer.
-# 答:
 
+# 第四題.Write a function called "findSmallCount"
+
+# that takes one list of integers and one integer as input,
+
+# and returns an integer indicating how many elements in the list is smaller than the input integer.
+
+# 答:
 
 def findSmallCount(int_list, target):
-    count = 0
-    for integer in int_list:
-        if integer < target:
-            count += 1
-    return count
+count = 0
+for integer in int_list:
+if integer < target:
+count += 1
+return count
+
+# ---
+
+# 第五題.Write a function called "findSmallerTotal"
+
+# that takes one list of integers and one integer as input,
+
+# and returns the sum of all elements in the list that are smaller than the input integer.
+
+# 答:
+
+def findSmallerTotal(numbers, target):
+total = 0
+for number in numbers:
+if number < target:
+total += number
+return total
+
+(以下是被建議的,已經修正)
+
+# 強烈建議改:sum_int → total
+
+sum_int 有兩個小問題：
+
+第一，它把型態 int 寫進名字裡，不太 Pythonic。
+
+第二，雖然它沒有直接覆蓋內建函式 sum，但靠近 sum 這個名字，讀起來還是容易讓人想到內建函式。
+
+更自然的是： total
+
+# 建議改:int_list → numbers
+
+在 Python 裡通常不會把資料型態寫進變數名稱
+
+# 可考慮:number → number 或 num
+
+# Simple Exercise I:
+
+# ---
+
+# 第五題.Write a function called "findSmallerTotal"
+
+# that takes one list of integers and one integer as input,
+
+# and returns the sum of all elements in the list that are smaller than the input integer.
+
+# 答:
+
+def findSmallerTotal(numbers, target):
+total = 0
+for number in numbers:
+if number < target:
+total += number
+return total
+
+# ---
+
+# 第六題.Write a function called "findAllSmall"
+
+# that takes one list of integers and another integer as input,
+
+# and returns a list of integers that contains all elements
+
+# that are smaller than the input integer.
+
+# 答:
+
+# def findAllSmall(numbers, target):
+
+# result = []
+
+# for number in numbers:
+
+# if number < target:
+
+# result.append(number)
+
+# return result
+
+# 進階簡潔寫法:
+
+def findAllSmall(numbers, target):
+return [number for number in numbers if number < target]
+
+# ---
+
+# 第七題.Write a function called "summ" that takes one list of numbers,
+
+# and return the sum of all elements in the input list.
+
+# 答:
+
+def summ(numbers):
+total = 0
+for number in numbers:
+total += number
+return total
