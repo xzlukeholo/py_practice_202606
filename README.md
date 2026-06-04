@@ -142,32 +142,28 @@ def print_stock_summary(stock):
 
 # ---
 
-# 第一題.Write a function called "printMany" that prints out integers 1, 2, 3, ..., 100.
+第一題.Write a function called "printMany" that prints out integers 1, 2, 3, ..., 100.
 
-# 答:
-
+答:
 def printMany():
 for number in range(1, 101):
 print(number)
 
 # ---
 
-# 第二題.Write a function called "printEvery3" that prints out integers 1, 4, 7, 10, ..., 88.
+第二題.Write a function called "printEvery3" that prints out integers 1, 4, 7, 10, ..., 88.
 
-# 答:
-
+答:
 def printEvery3():
 for number in range(1, 89, 3):
 print(number)
 
 # ---
 
-# 第三題.Write a function called "position" that returns a tuple of the first uppercase letter
+第三題.Write a function called "position" that returns a tuple of the first uppercase letter
+and its index location. If not found, returns - 1.
 
-# and its index location. If not found, returns - 1.
-
-# 答:
-
+答:
 def position(text):
 for index, char in enumerate(text):
 if char.isupper():
@@ -175,15 +171,11 @@ return (char, index)
 return -1
 
 # ---
+第四題.Write a function called "findSmallCount"
+that takes one list of integers and one integer as input,
+and returns an integer indicating how many elements in the list is smaller than the input integer.
 
-# 第四題.Write a function called "findSmallCount"
-
-# that takes one list of integers and one integer as input,
-
-# and returns an integer indicating how many elements in the list is smaller than the input integer.
-
-# 答:
-
+答:
 def findSmallCount(int_list, target):
 count = 0
 for integer in int_list:
@@ -192,15 +184,11 @@ count += 1
 return count
 
 # ---
+第五題.Write a function called "findSmallerTotal"
+that takes one list of integers and one integer as input,
+and returns the sum of all elements in the list that are smaller than the input integer.
 
-# 第五題.Write a function called "findSmallerTotal"
-
-# that takes one list of integers and one integer as input,
-
-# and returns the sum of all elements in the list that are smaller than the input integer.
-
-# 答:
-
+答:
 def findSmallerTotal(numbers, target):
 total = 0
 for number in numbers:
@@ -226,17 +214,13 @@ sum_int 有兩個小問題：
 
 # 可考慮:number → number 或 num
 
-# Simple Exercise I:
 
 # ---
 
-# 第五題.Write a function called "findSmallerTotal"
-
-# that takes one list of integers and one integer as input,
-
-# and returns the sum of all elements in the list that are smaller than the input integer.
-
-# 答:
+第五題.Write a function called "findSmallerTotal"
+that takes one list of integers and one integer as input,
+and returns the sum of all elements in the list that are smaller than the input integer.
+答:
 
 def findSmallerTotal(numbers, target):
 total = 0
@@ -247,27 +231,22 @@ return total
 
 # ---
 
-# 第六題.Write a function called "findAllSmall"
+第六題.Write a function called "findAllSmall"
+that takes one list of integers and another integer as input,
+and returns a list of integers that contains all elements that are smaller than the input integer.
 
-# that takes one list of integers and another integer as input,
+答:
+def findAllSmall(numbers, target):
 
-# and returns a list of integers that contains all elements
+result = []
 
-# that are smaller than the input integer.
+for number in numbers:
 
-# 答:
+if number < target:
 
-# def findAllSmall(numbers, target):
+result.append(number)
 
-# result = []
-
-# for number in numbers:
-
-# if number < target:
-
-# result.append(number)
-
-# return result
+return result
 
 # 進階簡潔寫法:
 
@@ -276,14 +255,57 @@ return [number for number in numbers if number < target]
 
 # ---
 
-# 第七題.Write a function called "summ" that takes one list of numbers,
+第七題.Write a function called "summ" that takes one list of numbers,
+and return the sum of all elements in the input list.
 
-# and return the sum of all elements in the input list.
-
-# 答:
-
+答:
 def summ(numbers):
 total = 0
 for number in numbers:
 total += number
 return total
+
+### Simple Exercise II - Python Loop Practice
+
+這次練習主要複習 Python 的 `for loop`、`range()`、巢狀迴圈、字串大小寫轉換，以及用迴圈尋找 list 中的最小值。
+
+## 練習內容
+
+本次完成的題目包含：
+
+1. 印出遞增星星圖案
+2. 印出先遞增再遞減的星星圖案
+3. 印出指定數字的九九乘法表
+4. 印出完整 1 到 9 的九九乘法表
+5. 將字串中的大寫轉小寫、小寫轉大寫
+6. 找出 list 中的最小值
+
+## 學到的重點
+
+這次練習讓我更熟悉 `range(start, stop, step)` 的使用方式，尤其是在處理遞減迴圈時，例如：
+
+```python
+range(number - 1, 0, -1)
+```
+
+也透過九九乘法表練習了巢狀迴圈，理解外層迴圈與內層迴圈各自負責的邏輯。
+
+在字串處理的題目中，我練習了：
+
+```python
+isupper()
+lower()
+upper()
+```
+
+並理解如何用 `if-else` 判斷每個字元應該轉成大寫或小寫。
+
+最後在 `findMin` 題目中，我練習不用內建的 `min()`，而是手動用迴圈比較每個元素，理解尋找最小值的基本演算法。
+
+## 心得
+
+這次的題目整體比前面的練習更接近實際的程式邏輯訓練。星星圖案和九九乘法表讓我更熟悉迴圈的控制方式，而 `swap` 和 `findMin` 則讓我練習如何用條件判斷處理資料。
+
+我發現自己已經能寫出正確的基礎邏輯，但還需要繼續練習讓程式碼更簡潔、更 Pythonic。例如在字串轉換時，可以減少重複的程式碼；在處理空 list 時，也要注意 Python 比較常見的寫法是回傳 `None` 或拋出錯誤，而不是使用 `"undefined"`。
+
+這次練習的收穫是：不只是把題目寫對，也開始學會思考程式碼的可讀性、命名方式，以及特殊情況的處理。
