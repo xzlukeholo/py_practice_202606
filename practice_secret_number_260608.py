@@ -36,8 +36,7 @@ def try_again():
     while True:
         play_again = input("感謝遊玩。\n是否要再玩一次？請輸入 y 或 n :").strip().lower()
         if play_again == "y":
-            reset()
-            break
+            return
 
         elif play_again == "n":
             exit_game()
@@ -63,40 +62,42 @@ def show_remaining_attempts():
     print()
 
 
-max_attempts = 10
-reset()
+def check_guess_range():  # 檢查輸入是否在範圍內 & 是否是合法
+    global attempts
+    while True:
+        try:
+            user_input = input("請猜一個數字,或輸入 q 離開:").strip().lower()
+            if user_input == "q":
+                exit_game()
+            user_input = int(user_input)
+            if low <= user_input <= high:
+                attempts += 1
+                return user_input
+            else:
+                print(f"{BOLD}{RED}請輸入目前範圍內的數字喔!{RESET}")
+                continue
+        except ValueError:
+            print(f"{BOLD}{RED}請輸入整數喔!愛您!{RESET}")
+            continue
 
-while True:
+
+def play_round():
+    global low, high
 
     while True:
 
-        while True:  # 檢查輸入是否在範圍內 & 是否是合法
-            try:
-                user_input = input("請猜一個數字,或輸入 q 離開:").strip().lower()
-                if user_input == "q":
-                    exit_game()
-                user_input = int(user_input)
-                if low <= user_input <= high:
-                    attempts += 1
-                    break
-                else:
-                    print(f"{BOLD}{RED}請輸入目前範圍內的數字喔!{RESET}")
-                    continue
-
-            except ValueError:
-                print(f"{BOLD}{RED}請輸入整數喔!愛您!{RESET}")
-                continue
+        user_input = check_guess_range()
 
         if user_input == answer:
             print(f"{BOLD}{GREEN}恭喜你猜對了！太厲害了! 答案就是{answer}{RESET}!!!")
             print(f"你總共猜了 {attempts} 次")
             print()
-            break
+            return
 
         if attempts >= max_attempts:
             print(f"{BOLD}{YELLOW}你輸了QwQ!好可惜，答案是{answer}喲!{RESET}")
             print()
-            break
+            return
 
         if user_input > answer:
             print()
@@ -112,4 +113,10 @@ while True:
             show_remaining_attempts()
             continue
 
+
+max_attempts = 10
+
+while True:
+    reset()
+    play_round()
     try_again()
