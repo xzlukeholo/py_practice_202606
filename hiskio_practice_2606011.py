@@ -118,3 +118,26 @@ def word_frequency(text):
         else:
             counter_dict[item] = 1
     return counter_dict
+
+
+# Practice Notes
+
+# 這次練習完成了三種不同類型的 Python 題目：
+
+# 1. `contains_sequence`
+#    - 練習 list 掃描與狀態追蹤。
+#    - 重點是使用 `target_index` 追蹤目前要找的目標位置。
+#    - 注意空的 `target` 應該回傳 `True`。
+
+# 2. `nested_count`
+#    - 練習遞迴處理巢狀 list。
+#    - 重點是遇到 list 時，把同一個任務交給函式自己處理，並把結果加總回來。
+#    - 這題加強了對「遞迴回傳值」的理解。
+
+# 3. `word_frequency`
+#    - 練習字串清洗與 dictionary 統計。
+#    - 重點是先轉小寫、移除標點符號，再用 dictionary 統計每個單字出現次數。
+#    - 使用 `split()` 而不是 `split(" ")`，可以更好處理多個空白或空字串。
+
+# 整體收穫：
+# 這次練習不只是寫出能執行的程式，而是分別練到三種重要問題模型：狀態追蹤、遞迴累加、資料統計。這些能力對後續學習資料分析與更複雜的 Python 題目都有幫助。

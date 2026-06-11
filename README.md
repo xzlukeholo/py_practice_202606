@@ -171,6 +171,7 @@ return (char, index)
 return -1
 
 # ---
+
 第四題.Write a function called "findSmallCount"
 that takes one list of integers and one integer as input,
 and returns an integer indicating how many elements in the list is smaller than the input integer.
@@ -184,6 +185,7 @@ count += 1
 return count
 
 # ---
+
 第五題.Write a function called "findSmallerTotal"
 that takes one list of integers and one integer as input,
 and returns the sum of all elements in the list that are smaller than the input integer.
@@ -213,7 +215,6 @@ sum_int 有兩個小問題：
 在 Python 裡通常不會把資料型態寫進變數名稱
 
 # 可考慮:number → number 或 num
-
 
 # ---
 
@@ -310,7 +311,7 @@ upper()
 
 這次練習的收穫是：不只是把題目寫對，也開始學會思考程式碼的可讀性、命名方式，以及特殊情況的處理。
 
-----------------------------------------
+---
 
 # Secret Number Guessing Game
 
@@ -319,38 +320,38 @@ upper()
 
 ## 功能特色
 
-* 隨機產生 1 到 1000 之間的答案
-* 玩家共有 10 次猜測機會
-* 會根據玩家輸入提示「太大」或「太小」
-* 會動態縮小可能範圍
-* 支援輸入 `q` 離開遊戲
-* 支援遊戲結束後重新開始
-* 使用 `try / except` 處理非整數輸入
-* 使用 ANSI escape codes 顯示彩色文字
+- 隨機產生 1 到 1000 之間的答案
+- 玩家共有 10 次猜測機會
+- 會根據玩家輸入提示「太大」或「太小」
+- 會動態縮小可能範圍
+- 支援輸入 `q` 離開遊戲
+- 支援遊戲結束後重新開始
+- 使用 `try / except` 處理非整數輸入
+- 使用 ANSI escape codes 顯示彩色文字
 
 ## 練習重點
 
 這個專案主要練習了以下 Python 基礎觀念：
 
-* `while True` 迴圈控制
-* `if / elif / else` 條件判斷
-* `try / except` 錯誤處理
-* `int()` 型別轉換
-* `random.randint()` 隨機數字
-* 函式拆分與程式結構整理
-* `return` 與 `break` 的使用差異
-* 使用變數追蹤遊戲狀態，例如答案、範圍、猜測次數
+- `while True` 迴圈控制
+- `if / elif / else` 條件判斷
+- `try / except` 錯誤處理
+- `int()` 型別轉換
+- `random.randint()` 隨機數字
+- 函式拆分與程式結構整理
+- `return` 與 `break` 的使用差異
+- 使用變數追蹤遊戲狀態，例如答案、範圍、猜測次數
 
 ## 程式結構
 
 程式被拆分成幾個主要函式：
 
-* `reset()`：重設答案、範圍與猜測次數
-* `check_guess_range()`：取得並驗證玩家輸入
-* `show_remaining_attempts()`：顯示目前可能範圍與剩餘次數
-* `play_round()`：控制一整局遊戲流程
-* `try_again()`：詢問玩家是否再玩一次
-* `exit_game()`：結束遊戲
+- `reset()`：重設答案、範圍與猜測次數
+- `check_guess_range()`：取得並驗證玩家輸入
+- `show_remaining_attempts()`：顯示目前可能範圍與剩餘次數
+- `play_round()`：控制一整局遊戲流程
+- `try_again()`：詢問玩家是否再玩一次
+- `exit_game()`：結束遊戲
 
 ## 如何執行
 
@@ -370,3 +371,25 @@ python main.py
 一開始我把多層 `while True` 全部寫在主程式中，雖然可以執行，但結構比較集中。後來將輸入驗證、單局遊戲流程、重新開始邏輯拆成不同函式，讓主程式變得更清楚，也更容易維護。
 
 這次練習也讓我理解到，函式拆分不是越多越好，而是要讓每個函式有明確責任。當程式功能變多時，良好的結構會讓程式更容易閱讀與修改。
+
+## 2026/6/11 Practice Notes
+
+這次練習完成了三種不同類型的 Python 題目：
+
+1. `contains_sequence`
+   - 練習 list 掃描與狀態追蹤。
+   - 重點是使用 `target_index` 追蹤目前要找的目標位置。
+   - 注意空的 `target` 應該回傳 `True`。
+
+2. `nested_count`
+   - 練習遞迴處理巢狀 list。
+   - 重點是遇到 list 時，把同一個任務交給函式自己處理，並把結果加總回來。
+   - 這題加強了對「遞迴回傳值」的理解。
+
+3. `word_frequency`
+   - 練習字串清洗與 dictionary 統計。
+   - 重點是先轉小寫、移除標點符號，再用 dictionary 統計每個單字出現次數。
+   - 使用 `split()` 而不是 `split(" ")`，可以更好處理多個空白或空字串。
+
+整體收穫：
+這次練習不只是寫出能執行的程式，而是分別練到三種重要問題模型：狀態追蹤、遞迴累加、資料統計。這些能力對後續學習資料分析與更複雜的 Python 題目都有幫助。
