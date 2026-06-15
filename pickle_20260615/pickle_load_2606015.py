@@ -8,9 +8,20 @@ items = None
 
 
 def restore_data():
-    pass
+    global player_name, level, hp, gold, items
+
+    with open("pickle_rpg_save", "rb") as p_save:
+        save_data = pickle.load(p_save)
+
+        player_name = save_data["player_name"]
+        level = save_data["level"]
+        hp = save_data["hp"]
+        gold = save_data["gold"]
+        items = save_data["items"]
 
 
+restore_data()
+print(player_name, level, hp, gold, items)
 '''
 pickle_rpg_save.py
 
