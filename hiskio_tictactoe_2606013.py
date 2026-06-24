@@ -16,7 +16,7 @@ grid = [1, 2, 3,
 turn = 0
 
 
-def print_grid():
+def print_grid(grid):
     print(f" {grid[0]} | {grid[1]} | {grid[2]} ")
     print("---+---+---")
     print(f" {grid[3]} | {grid[4]} | {grid[5]} ")
@@ -70,10 +70,10 @@ def win_control(xo):
 
 
 print()
-print_grid()
+print_grid(grid)
 while True:
     turn += 1
 
     grid[user_input(OX_control())] = OX_control()
-    print_grid()
+    print_grid(grid)
     win_control(OX_control())

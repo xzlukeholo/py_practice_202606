@@ -104,43 +104,6 @@ def mySort(numbers):
 def isPrime_my(number):
     if not isinstance(number, int):
         # 我知道題目說是integer,但不能確保使用者輸入一定正確,我覺得還是要防呆
-        print("Please enter an integer.")
-        return False
-
-    if number <= 1:
-        return False
-    elif number == 2:
-        return True
-
-    for i in range(2, number):
-        if number % i == 0:
-            return False
-
-    return True
-
-
-'''
-#被告知可以優化,找到開根號就好
-簡單來說：「如果一個大於 1 的正整數有因數，那其中一個因數一定小於或等於它的平方根。」
-因此，要檢查是不是質數，我們不需要一路上網查到 (n-1)
-只需要檢查到 (\sqrt{n}\)（也就是 n ** 0.5)就完全足夠了。
-
-如果一個數可以被分解：
-number = a * b
-那麼 a 和 b 不可能都大於 sqrt(number)。
-所以只要檢查到平方根，前面沒找到因數，後面也不會有新的必要檢查。
-
-🚀 速度差多少？（驚人的差距）
-假設我們要檢查剛剛那個 7 位數的質數 6911321：老實的做法：從 2 一直除到 6911320，要跑 6,911,319 次 迴圈。
-數學加速做法：\(\sqrt{6911321} \approx 2628.9\)。加上 int 和 + 1 後，
-range(2, 2630) 只要跑 2,628 次 迴圈。運算次數直接縮小了 2600 倍！
-電腦本來要算幾秒鐘，現在一瞬間就噴出答案了。
-'''
-
-
-def isPrime(number):
-    if not isinstance(number, int):
-        print("Please enter an integer.")
         return False
 
     if number <= 1:
@@ -157,3 +120,23 @@ def isPrime(number):
             return False
 
     return True
+
+
+'''
+#被告知可以優化,找到開根號就好,所以有修正過了
+簡單來說：「如果一個大於 1 的正整數有因數，那其中一個因數一定小於或等於它的平方根。」
+因此，要檢查是不是質數，我們不需要一路上網查到 (n-1)
+只需要檢查到 (\sqrt{n}\)（也就是 n ** 0.5)就完全足夠了。
+
+如果一個數可以被分解：
+number = a * b
+那麼 a 和 b 不可能都大於 sqrt(number)。
+所以只要檢查到平方根，前面沒找到因數，後面也不會有新的必要檢查。
+
+🚀 速度差多少？（驚人的差距）
+假設我們要檢查剛剛那個 7 位數的質數 6911321：老實的做法：從 2 一直除到 6911320，要跑 6,911,319 次 迴圈。
+數學加速做法：
+(\sqrt{6911321} \approx 2628.9\)。加上 int 和 + 1 後，
+range(2, 2630) 只要跑 2,628 次 迴圈。運算次數直接縮小了 2600 倍！
+電腦本來要算幾秒鐘，現在一瞬間就噴出答案了。
+'''

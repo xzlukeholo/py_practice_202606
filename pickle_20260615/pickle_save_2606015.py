@@ -8,10 +8,9 @@ items = ["potion", "iron sword", "apple"]
 
 
 def save_data():
-    global player_name, level, hp, gold, items
 
     data = {"player_name": player_name, "level": level, "hp": hp,
-            "gold": gold, "items": ["potion", "iron sword", "apple"]}
+            "gold": gold, "items": items}
 
     with open("pickle_rpg_save", "wb") as p_save:
         pickle.dump(data, p_save)
