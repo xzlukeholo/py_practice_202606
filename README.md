@@ -401,3 +401,31 @@ python main.py
 - 練習 `shelve.open()`、`db.keys()`、key 查詢、資料修改與整包寫回
 - 理解 shelve 會保存上次執行後的狀態，重複執行修改程式會讓數值持續變動
 - 完成資料存在 / 不存在的查詢判斷
+
+
+# Python Practice Log
+
+## 2026/6/25｜Day 44
+
+今天完成兩題 Python 基礎練習，主要複習 function、list、string、dict、遞迴與資料清洗。
+
+### Completed Exercises
+
+#### 1. nested_even_sum(data)
+
+練習重點：
+
+- 巢狀 list 處理
+- 遞迴 recursive function
+- 偶數判斷
+- 累加總和
+
+功能說明：
+
+`nested_even_sum(data)` 會接收一個可能包含多層 list 的資料結構，找出所有偶數並加總。
+
+範例：
+
+```python
+nested_even_sum([1, [2, 3], [4, [5, 6]]])
+# 12
